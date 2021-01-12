@@ -1,0 +1,135 @@
+/*ОСНОВНАЯ ЧАСТЬ СТРАНИЦ*/
+html{
+ 	width:100vw;
+  	overflow-x:hidden;
+}
+body{
+	background-color: #0d0d0d;
+	color: #EF3038;
+}
+a{
+	text-decoration: none;
+	color: #EF3038;
+}
+a:hover{
+	text-decoration: none;
+	color:#696969;
+}
+.container{
+	margin-bottom: 20px;
+	max-width: 1100px;
+}
+.header-container{
+	display: flex;
+	max-width: 1100px;
+}
+/*НАВИГАЦИЯ-МЕНЮ*/
+.nav-head{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+.nav-left{
+	display: flex;
+}
+.nav-elem-row{
+	margin: 0 20px;
+	font-size: 20px;
+}
+.nav-elem-column{
+	margin: 10px auto;
+}
+.right-header{
+	display: flex;
+}
+.left-header{
+	display: flex;
+	flex-direction: column;
+}
+/*НАЧАЛО РЕДАКТИРОВАНИЯ СТРАНИЦ С ПОСТАМИ*/
+.image-detail{
+	width: 400px;
+	height: 350px;
+	background-color: #F5F5F5;
+	text-align: center;
+}
+.image-detail-img{
+	max-width: 400px;
+	max-height: 350px;
+	margin: 0 auto;
+	height: 450px;
+}
+.post-container{
+	display: flex;
+	margin-left: 100px;
+}
+.posts{
+	margin-left: 100px;
+}
+.post{
+	width: 400px;
+}
+.post-comments{
+	margin-left: 330px;
+}
+.post-update{
+	margin-left: 20px;
+}
+/*ФОРМА РЕГИСТРАЦИИ*/
+.form-reg{
+	width: 400px;
+}
+/*ФОРМА РЕГИСТРАЦИИ*/
+.detail-description{
+	margin: 10px auto;
+}
+
+.comment-detail{
+	margin: 20px auto;
+}
+/*КОНЕЦ РЕДАКТИРОВАНИЯ СТРАНИЦ С ПОСТАМИ*/
+.edit{
+	margin: 20px auto;
+}
+.update{
+	width: 400px;
+}
+.add{
+	width: 400px;
+	margin-left: 100px;
+}
+.my-profile{
+	width: 700px;
+	margin-left: 100px;
+}
+.line{
+	border-bottom: 2px solid #ffffff;
+}
+.my-profile-extra{
+	margin-top: 20px;
+}
+.user-profile{
+	margin-left: 100px;
+    display: flex;
+}
+.users{
+	width: 200px;
+	margin-top: 70px;
+	border: 1px solid white;
+}
+.user{
+	padding: 10px 5px;
+}
+.search_results{
+	margin-left: 100px;
+}
+/*КНОПКА ПОДПИСКИ*/
+.subscribe{
+    margin-left: 400px;
+}
+.subscribe-button{
+    color: white;
+    padding: 5px;
+    border: none; 
+    outline: none;
+}

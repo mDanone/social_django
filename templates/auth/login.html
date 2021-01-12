@@ -1,0 +1,16 @@
+{%extends "base/index.html"%}
+
+{% load crispy_forms_tags %}
+
+{%block content%}
+{%if not request.user.is_authenticated%}
+<form method="post">
+	{%csrf_token%}
+	{{form.as_p}}
+	<button type="submit" class="btn btn-success">Войти</button>
+</form>
+{%else%}
+<h1>Вы уже вошли, перейдите на другую страницу</h1>
+{%endif%}
+
+{%endblock%}

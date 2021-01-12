@@ -1,0 +1,16 @@
+{%extends "base/base.html"%}
+
+
+{% load crispy_forms_tags %}
+
+{%block content%}
+<div class="add">
+	<form method="post" enctype="multipart/form-data" novalidate>
+		
+		{%csrf_token%}
+		{{form | crispy}}
+		<button type="submit" class="btn btn-success">Добавить Изображение</button>
+	</form>
+</div>
+
+{%endblock%}

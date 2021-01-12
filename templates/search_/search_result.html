@@ -1,0 +1,23 @@
+{%extends "base/base.html"%}
+
+
+{%block content%}
+<div class="search_results">
+	{%if result%}
+	{%for res in result%}
+	<div class="search_result">
+		{% if res == current_user%}
+		<a href="{%url 'my_profile'%}"><h1>{{res.username}}</h1></a>
+		{%else%}
+		<a href="{%url 'user_profile' res.pk%}"><h1>{{res.username}}</h1></a>
+		{%endif%}
+		<div class="line"></div>
+		<p>{{res.first_name}} {{res.second_name}}</p>
+		<p>{{res.date_joined}}</p>
+	</div>
+	{%endfor%}
+	{%else%}
+	<h1>Результаты не найдены</h1>
+	{%endif%}
+</div>
+{%endblock%}

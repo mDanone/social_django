@@ -1,0 +1,20 @@
+{%extends "base/base.html"%}
+
+
+{%load crispy_forms_tags%}
+
+{%block content%}
+<div class="posts">
+	{%for p in posts%}
+	<div class="post">
+		<h1 class="title">{{p.title}}</h1>
+		<p class="description">{{p.description | truncatewords:20}}</p>
+		<p>{{p.user}}</p>
+		{%if p.image.url is not None%}
+		<div class="image-detail"><img class="image-detail-img" src="{{p.image.url}}"></div>
+		{%endif%}
+		<a href="{%url 'update_add' p.pk%}"><button type="submit" class="btn btn-success edit">Редактировать</button></a>
+	</div>
+	{%endfor%}
+</div>
+{%endblock%}

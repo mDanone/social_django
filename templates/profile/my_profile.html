@@ -1,0 +1,35 @@
+{%extends "base/base.html"%}
+
+
+
+{%block content%}
+<div class="my-profile">
+	<div class="my-profile-main">
+		<h1>Пользовательское имя: {{profile.username}}</h1>
+		{%if profile.first_name%}
+		<p>Настоящее имя: {{profile.first_name}}</p>
+		{%else%}
+		<p>Вы еще не представили Имени</p>
+		{%endif%}
+		{%if profile.last_name%}
+		<p>Фамилия: {{profile.last_name}}</p>
+		{%else%}
+		<p>Вы еще не представили фамилию</p>
+		{%endif%}
+	</div>
+	<div class="line"></div>
+	<div class="my-profile-extra">
+		<p>{{profile.profile.status}}</p>
+		{% if profile.profile.display_status %}
+		<p>
+			Статус отображается
+		</p>
+		{%else%}
+		<p>Статус не отображается</p>
+		{%endif%}
+		<p>{{profile.profile.description}}</p>
+		{{object}}
+		<a href="{%url 'edit' user.id%}"><button type="submit" class="btn btn-success edit">Редактировать</button></a>
+	</div>
+</div>
+{%endblock%}

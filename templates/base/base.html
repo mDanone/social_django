@@ -1,0 +1,60 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{%block title%}{%endblock%}</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{%static 'css/style.css'%}">
+
+</head>
+<body>
+	<div class="container">
+		<nav class="nav-head">
+			<div class="nav-left">
+				<a href="{%url 'index'%}"><p class="nav-elem-row">Главная</p></a>
+				<div class="nav-elem-row">
+					<form action="{%url 'search_result' %}" class="navbar-form navbar-left" method="get">
+						<div class="input-group">
+							<input id="search" name="q" type="text" class="form-control" placeholder="Поиск">
+							<span class="input-group-btn">
+								<button style="margin-left: 10px;" type="submit" class="btn btn-default"><a href="{%url 'search_result'%}">Найти</a></button>
+							</span>
+						</div>
+					</form>
+				</div>
+			</div>
+			{%if request.user.is_authenticated%}
+			<div class="right-header">
+				<a href="{%url 'my_profile'%}"><p class="nav-elem-row">{{request.user}}</p></a>
+				<a href="{%url 'logout' %}"><p class="nav-elem-row">Выйти</p></a>
+			</div>
+			{%else%}
+			<div class="right-header">
+				<a href="{%url 'login_page'%}"><p class="nav-elem-row">Авторизация</p></a>
+				<a href="{%url 'reg_page'%}"><p class="nav-elem-row">Регистрация</p></a>
+			</div>
+			{%endif%}
+		</nav>
+	</div>
+	<div class="container">
+		<div class="header-container">
+			{%if request.user.is_authenticated%}
+			<nav class="left-header">
+				<a href="{%url 'news_page'%}"><p class="nav-elem-column">Лента</p></a>
+				<a href="{%url 'add_post' %}"><p class="nav-elem-column">Добавить</p></a>
+				<a href="{%url 'update_list' %}"><p class="nav-elem-column">Редактировать</p></a>
+			</nav>
+			{%endif%}
+			<div class="content-container">
+				{%block content%}
+				{%endblock%}
+			</div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="{%static 'scripts/service.js'%}"></script>
+	<script src="{%static 'scripts/subscribe.js'%}"></script>
+</body>
+</html>

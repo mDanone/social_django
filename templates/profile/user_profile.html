@@ -1,0 +1,32 @@
+{%extends "base/base.html"%}
+
+
+{%block content%}
+<div class="user-profile">
+	<div class="user-info">
+		<h1 class="username">
+			{{user.username}}
+		</h1>
+		<p class="user-first-name">{{user.first_name}}</p>
+		<p class="user-last-name">{{user.last_name}}</p>
+		{%if user.profile.status%}
+		<p class="user-status">{{user.profile.status}}</p>
+		{%else%}
+		<p class="user-status">Статус отсутствует</p>
+		{%endif%}
+		<p class="user-description">{{user.profile.description}}</p>
+		<p class="user-date-joined">{{user.date_joined}}</p>
+	</div>
+	<div class="subscribe">
+		{%csrf_token%}
+		{% if follower %}
+		<button id="subscribe" style="background-color: red;" class="subscribe-button">
+			Отписаться
+		</button>
+		{% else %}
+		<button id="subscribe" style="background-color: red;" class="subscribe-button">
+			Подписаться
+		</button>
+		{% endif %}
+	</div>
+	{%endblock%}

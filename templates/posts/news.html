@@ -1,0 +1,14 @@
+{%extends "base/base.html"%}
+
+
+{%block content%}
+<div class="posts">
+	{%for p in posts%}
+	<div class="post">
+		<h1 class="title">{{p.title}}</h1>
+		<p class="description">{{p.description | truncatewords:20}}</p>
+		<a href="{%url 'post_detail' p.pk%}"><button type="submit" class="btn">Подробнее</button></a>
+	</div>
+	{%endfor%}
+</div>
+{%endblock%}

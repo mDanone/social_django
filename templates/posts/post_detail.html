@@ -1,0 +1,30 @@
+{%extends "base/base.html"%}
+
+{% load crispy_forms_tags %}
+
+{%block content%}
+<div class="post-container">
+	<div class="post-detail">
+		<h1>{{object.title}}</h1>
+		{%if object.img.url%}
+		<div class="image-detail"><img class="image-detail-img" src="{{object.image.url}}"></div>
+		{%endif%}
+		<p class="detail-description">{{object.description}}</p>
+	</div>
+	<div class="post-comments">
+		<h1>Комментарии</h1>
+		<form method="post" novalidate>
+			{%csrf_token%}
+			{{form | crispy}}
+			<button type="submit" class="btn btn-success">Добавить Комментарий</button>
+		</form>
+		{%for c in object.post_comment.all%}
+		<div class="comment-detail">
+			<p>{{c.text}}</p>
+			<h2 style="color:#C0C0C0">{{c.comment_user}}</h2>
+			<p>{{c.published}}</p>
+		</div>
+		{%endfor%}
+	</div>
+</div>
+{%endblock%}
